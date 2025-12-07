@@ -1,6 +1,6 @@
-# Estrutura de Diretórios
+# Directory tree of EP001
 
-Abaixo está a estrutura de diretórios de '.':
+Directory tree of '.':
 
 .
 ├── asm
