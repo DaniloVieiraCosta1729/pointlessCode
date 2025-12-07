@@ -11,3 +11,20 @@ What I'm going to do is prove using a brute force and, maybe, a solution that im
 
 ## Build:
 I'll use standard C, and the major part, if not everything, will be made for Ubuntu. So, if you use some Linux distro, you should be fine with only an up-to-date GCC compiler. I think the simpler solutions will be able to get compiled for Windows as well, but I can’t guarantee compatibility for all problems.
+
+## Repo-tree
+```
+.
+├── EP001
+│   ├── asm
+│   ├── generate_tree.sh
+│   ├── header
+│   ├── obj
+│   ├── src
+│   ├── static
+│   ├── test
+│   └── tree_output.md
+├── README.md
+├── generate_tree.sh
+└── tree_output.md
+```
