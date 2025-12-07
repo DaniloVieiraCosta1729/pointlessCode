@@ -2,6 +2,7 @@
 
 Directory tree of '.':
 
+```
 .
 ├── asm
 │   └── random.asm
@@ -19,5 +20,6 @@ Directory tree of '.':
 │   ├── buildTest
 │   └── understanding.c
 └── tree_output.md
+```
 
 ![Output of test/understanding.c](static/test.png)
