@@ -1,7 +1,5 @@
 # Directory tree of EP001
 
-Directory tree of '.':
-
 ```
 .
 ├── asm
