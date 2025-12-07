@@ -1,0 +1,11 @@
+# Ignorar arquivos de objeto e arquivos compilados
+*.o
+*.out
+
+# Ignorar arquivos e pastas de configuração do VS Code
+.vscode/
+
+# Caso você queira ignorar configurações específicas, pode adicionar também:
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
