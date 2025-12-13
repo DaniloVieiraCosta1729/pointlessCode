@@ -16,6 +16,9 @@ gcc testSolution.c ../obj/tools.o -o solution.out
 ```
 I know a makefile would be a lot better, but I'm still not used to making these makefiles yet, but I'll definitely add one later.
 
+# Results
+The problem was solved, and it returns a number of 132260596 iterations to complete the task. This number is how many times a person would have to divide the stones in the even-numbered box in half and put half in the odd-numbered box until confirming that, for all numbers between 1 and 1018, all of them appear as a quantity of stones in one of the boxes at some point.
+
 # Directory tree of EP001
 
 ```
@@ -37,5 +40,3 @@ I know a makefile would be a lot better, but I'm still not used to making these 
 │   └── understanding.c
 └── tree_output.md
 ```
-
-![Output of test/understanding.c](static/test.png)
