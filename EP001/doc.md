@@ -25,6 +25,10 @@ The problem was solved, and it returns a number of 132260596 iterations to compl
 .
 ├── asm
 │   └── random.asm
+├── benchmark
+│   ├── solutions
+│   └── understandTools
+├── doc.md
 ├── generate_tree.sh
 ├── header
 │   └── tools.h
@@ -35,8 +39,15 @@ The problem was solved, and it returns a number of 132260596 iterations to compl
 ├── src
 │   ├── Stones-belarusTST2019.c
 │   └── tools.c
+├── static
+│   └── test.png
 ├── test
 │   ├── buildTest
+│   ├── macro.out
+│   ├── macros.c
+│   ├── solution.out
+│   ├── testSolution.c
 │   └── understanding.c
 └── tree_output.md
+
 ```
