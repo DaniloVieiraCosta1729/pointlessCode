@@ -6,6 +6,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+
+#define BITSET_SIZE 1024
+#define WORD_SIZE 64
+#define UNSET(bitset, number) ((bitset)[(number)/WORD_SIZE]) &= ~(1ULL << (number)%WORD_SIZE)
 
 void transfWithPointer(int * boxA, int * boxB)
 {
@@ -19,6 +24,18 @@ void transfWithPointer(int * boxA, int * boxB)
     *boxB = *boxB >> 1;
     *boxA += *boxB;
 }
+void transfWithPointerWithoutShift(int * boxA, int * boxB)
+{
+    if (*boxA % 2 == 0)
+    {
+        *boxA = *boxA / 2;
+        *boxB += *boxA;
+        return;
+    }
+    
+    *boxB = *boxB / 2;
+    *boxA += *boxB;
+}
 
 void showBoxes(int * a, int * b)
 {
@@ -26,7 +43,7 @@ void showBoxes(int * a, int * b)
 }
 
 // returns the number of iterations for solving the problem. 
-int instance_solution(int * a, int * b) // bad solution
+int instance_solution(int * a, int * b, void (*transf)(int *, int *)) // bad solution
 {
     int iterations = 0;
     for (size_t k = 1; k < 1019; k++)
@@ -45,7 +62,7 @@ int instance_solution(int * a, int * b) // bad solution
                 return -1;
             }
             
-            transfWithPointer(a, b);            
+            transf(a, b);            
         }
         
     }  
@@ -77,7 +94,7 @@ int solution()
 
     while (*boxA < 510)
     {
-        int c = instance_solution(boxA, boxB);
+        int c = instance_solution(boxA, boxB, transfWithPointerWithoutShift);
         if (c == -1)
         {
             free(boxA);
@@ -97,4 +114,67 @@ int solution()
 
     return total_iterations;
    
+}
+
+int solution2()
+{
+    uint64_t bitset[BITSET_SIZE/WORD_SIZE];
+
+    for (size_t i = 0; i < (BITSET_SIZE/WORD_SIZE); i++)
+    {
+        bitset[i] = 0xFFFFFFFFFFFFFFFF;
+    }    
+
+    uint32_t boxA = 1;
+    uint32_t boxB = 1019 - boxA;
+
+    UNSET(bitset, 0);
+    for (size_t i = 1018; i < 1024; i++)
+    {
+        UNSET(bitset, i);
+    }
+    
+
+    for (size_t i = 0; i < 1000000; i++)
+    {
+        if (boxA % 2 == 0)
+        {
+            boxA = boxA >> 1;
+            boxB += boxA;
+
+            UNSET(bitset, boxA);
+            UNSET(bitset, boxB);
+
+            if (i > 509)
+            {
+                if (memchr(bitset, 0, BITSET_SIZE/WORD_SIZE) == NULL)
+                {
+                    return i;
+                }
+            }
+
+            continue;
+            
+        }
+
+        boxB = boxB >> 1;
+        boxA += boxA;
+
+        UNSET(bitset, boxA);
+        UNSET(bitset, boxB);
+
+        if (i > 509)
+        {
+            if (memchr(bitset, 0, BITSET_SIZE/WORD_SIZE) == NULL)
+            {
+                return i;
+            }
+        }
+        
+    }
+    
+    printf("1,000,000,000 is not enough iterations to prove by brute force.");
+
+    return 0;
+
 }
