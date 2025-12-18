@@ -7,7 +7,7 @@
 
 int main(int argc, char const *argv[])
 {
-    int iterations = solution();
+    int iterations = solution2();
 
     printf("Iterations: %d\n", iterations);
 
