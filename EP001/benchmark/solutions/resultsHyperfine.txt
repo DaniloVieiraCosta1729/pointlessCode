@@ -1,0 +1,16 @@
+Benchmark 1: ./benchWithShift.out
+  Time (mean ± σ):     578.5 ms ±   2.6 ms    [User: 575.7 ms, System: 1.2 ms]
+  Range (min … max):   575.5 ms … 582.3 ms    10 runs
+ 
+Benchmark 1: ./benchWithDiv.out
+  Time (mean ± σ):     590.7 ms ±   1.6 ms    [User: 585.7 ms, System: 3.3 ms]
+  Range (min … max):   587.6 ms … 593.4 ms    10 runs
+ 
+Benchmark 1: ./sol2.out
+  Time (mean ± σ):       2.9 ms ±   0.3 ms    [User: 1.1 ms, System: 0.4 ms]
+  Range (min … max):     2.4 ms …   6.2 ms    624 runs
+ 
+Benchmark 1: ./twoOptm.out
+  Time (mean ± σ):     283.7 ms ±  25.1 ms    [User: 280.3 ms, System: 1.9 ms]
+  Range (min … max):   251.0 ms … 315.9 ms    10 runs
+ 
